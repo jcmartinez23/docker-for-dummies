@@ -37,6 +37,10 @@ PowerShell version:
      node:12-alpine `
      sh -c "yarn install && yarn run dev"
 ```
+CMD version:
+```sh
+docker run -dp 3000:3000 -w /app -v "%cd%/app:/app" node:12-alpine sh -c "yarn install && yarn run dev"
+```
 
 2. Look and find in the code, for the text of the button "Add Item" and change it (i.e. only "Add")
 
