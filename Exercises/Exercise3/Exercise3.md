@@ -25,7 +25,7 @@ In case you’re curious about the command, we’re starting a bash shell and in
  docker run -it ubuntu ls /
 ```
 And look! There’s no data.txt file there! That’s because it was written to the scratch space for only the first container.
-With the previous exercise, we saw that each container starts from the image definition each time it starts. 
+With the previous exercise, we saw that each container starts from the image definition each time it starts.
 
 Containers can create, update, and delete files, those changes are lost when the container is removed and all changes are isolated to that container. With volumes, we can change all of this.
 
@@ -45,6 +45,8 @@ With the database being a single file, if we can persist that file on the host a
  docker volume create todo-db
 ```
 3. Start the todo app container in detached mode and mapping 3000 port (or whatever), but add the -v flag to specify a volume mount. We will use the named volume and mount it to /etc/todos, which will capture all files created at the path.
+
+docker run -p 2000:3000 -v test-db:/etc/todos exercise:2.0
 
 4. Once the container starts up, open the app and add a few items to your todo list.
 
